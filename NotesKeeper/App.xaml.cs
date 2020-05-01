@@ -1,8 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using NotesKeeper.Services;
 using NotesKeeper.Views;
+using NoteKeeper.Services;
 
 namespace NotesKeeper
 {
