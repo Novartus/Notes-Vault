@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "6vr3lWI7CLquPyAddfo92a9uTW6XSIIAMUiiyvxOsZApB3ZuzT4tAzrVZRnOsCz2hImF5WCAnQvc413b8NXx0w==",
+  "success": true,
+  "projectFilePath": "Z:\\Xamarin\\NotesKeeper\\NotesKeeper\\NotesKeeper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Abhee\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Abhee\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Abhee\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.4.0.991265\\xamarin.forms.4.4.0.991265.nupkg.sha512"
+  ],
+  "logs": []
+}
