@@ -43,7 +43,12 @@ namespace NotesKeeper.Views
         {
             var DataStore = new MockCourseDataStore();
             CourseList = await DataStore.GetCoursesAsync();
-            Note = new Note {Heading= "Test Note", Text="Test Node Test"};
+            Note = new Note 
+            {
+                Heading= "Test Note", 
+                Text="Test Node Test",
+                Course= CourseList[0]
+            };
         }
 
         public void Cancel_Clicked(object Sender, EventArgs eventArgs)

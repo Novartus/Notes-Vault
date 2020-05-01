@@ -16,23 +16,25 @@
 
     <StackLayout Spacing="20" Padding="15">
 
+        <!--Correct Order Is Required In Picker-->
         <Picker ItemsSource="{Binding CourseList}"
-            x:Name="NoteCourse" 
-            Title="Note Course" 
-            FontSize="Medium">
-            
+                SelectedItem="{Binding Note.Course}"
+                x:Name="NoteCourse" 
+                Title="Note Course" 
+                FontSize="Medium">
+
         </Picker>
-        
+
         <Entry Text="{Binding Heading}"
-            x:Name="NoteHeading"
-            Placeholder="Note Heading" 
-            FontSize="Medium"/>
-        
+                x:Name="NoteHeading"
+                Placeholder="Note Heading" 
+                FontSize="Medium"/>
+
         <Editor Text="{Binding Text}"
-            x:Name="NoteText"
-            AutoSize="TextChanges" 
-            Placeholder="Note Text"
-            FontSize="Medium"/>
+                x:Name="NoteText"
+                AutoSize="TextChanges" 
+                Placeholder="Note Text"
+                FontSize="Medium"/>
     </StackLayout>
 
 </ContentPage>
