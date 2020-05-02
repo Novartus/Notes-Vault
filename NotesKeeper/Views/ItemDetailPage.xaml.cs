@@ -16,7 +16,7 @@ namespace NotesKeeper.Views
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
-        public Note Note { get; set; }
+        //public Note Note { get; set; }
         public IList<String> CourseList { get; set; }
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
@@ -24,7 +24,9 @@ namespace NotesKeeper.Views
             InitializeComponent();
             InitializeData();
 
-            BindingContext = Note;
+            this.viewModel = viewModel;
+            BindingContext = this.viewModel;
+            //BindingContext = Note;
             NoteCourse.BindingContext = this;
         }
 
@@ -35,7 +37,9 @@ namespace NotesKeeper.Views
             InitializeComponent();
             InitializeData();
 
-            BindingContext = Note;
+            viewModel = new ItemDetailViewModel();
+            BindingContext = viewModel;
+            //BindingContext = Note;
             NoteCourse.BindingContext = this;
         }
 
@@ -43,12 +47,12 @@ namespace NotesKeeper.Views
         {
             var DataStore = new MockCourseDataStore();
             CourseList = await DataStore.GetCoursesAsync();
-            Note = new Note 
-            {
-                Heading= "Test Note", 
-                Text="Test Node Test",
-                Course= CourseList[0]
-            };
+            //Note = new Note 
+            //{
+            //    Heading= "Test Note", 
+            //    Text="Test Node Test",
+            //    Course= CourseList[0]
+            //};
         }
 
         public void Cancel_Clicked(object Sender, EventArgs eventArgs)
