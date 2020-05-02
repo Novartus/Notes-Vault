@@ -12,34 +12,36 @@ namespace NotesKeeper.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Note> Notes { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Notes = new ObservableCollection<Note>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+         /*   MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
                 var newItem = item as Item;
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
-            });
+            });*/
         }
 
         async Task ExecuteLoadItemsCommand()
         {
+            if (IsBusy)
+                return;
             IsBusy = true;
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Notes.Clear();
+                var notes = await CourseDataStore.GetNotesAsync();
+                foreach (var note in notes)
                 {
-                    Items.Add(item);
+                    Notes.Add(note);
                 }
             }
             catch (Exception ex)
