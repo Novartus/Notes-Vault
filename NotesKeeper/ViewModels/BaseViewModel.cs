@@ -7,12 +7,14 @@ using Xamarin.Forms;
 
 using NotesKeeper.Models;
 using NotesKeeper.Services;
+using NoteKeeper.Services;
 
 namespace NotesKeeper.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public ICourseDataStore CourseDataStore => DependencyService.Get<ICourseDataStore>() ?? new MockCourseDataStore();
 
         bool isBusy = false;
         public bool IsBusy

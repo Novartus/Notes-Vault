@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using NotesKeeper.Models;
 
 namespace NotesKeeper.ViewModels
@@ -8,10 +8,25 @@ namespace NotesKeeper.ViewModels
     {
         //public Item Item { get; set; }
         public Note Note { get; set; }
+        public IList<String> CourseList { get; set; }
         public ItemDetailViewModel(Item item = null)
         {
-            Title = item?.Text;
-            Note = new Note { Heading = "Test Note", Text="Text for note in viewmodel"};
+            InitializeCourseList();
+            Note = new Note
+            {
+                Heading = "Test Note",
+                Text = "Text for note in viewmodel",
+                Course = CourseList[0]
+            };
+
+            //Title = item?.Text;
+            //Note = new Note { Heading = "Test Note", Text="Text for note in viewmodel"};
+        }
+
+
+        async void InitializeCourseList()
+        {
+            CourseList = await CourseDataStore.GetCoursesAsync();
         }
     }
 }
