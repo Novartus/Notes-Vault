@@ -33,14 +33,24 @@ namespace NotesKeeper.Views
             BindingContext = viewModel;
         }
 
-        public void Cancel_Clicked(object Sender, EventArgs eventArgs)
+        // Cancel knap
+        public void Cancel_Clicked(object sender, EventArgs eventArgs)
         {
-            DisplayAlert("Cancel Option", "Cancel was selected", "Button 2", "Button 1");
+            Navigation.PopModalAsync();
+
         }
 
-        public void Save_Clicked(object Sender, EventArgs eventArgs)
+        // Save knap
+        public void Save_Clicked(object sender, EventArgs eventArgs)
         {
-            DisplayAlert("Save Option", "Save was selected", "Button 2", "Button 1");
+            // Determine appropriate message
+            var message = viewModel.IsNewNote ? "SaveNote" : "UpdateNote";
+
+            // Send appropriate message, include the affected note
+            MessagingCenter.Send(this, message, viewModel.Note);
+
+            Navigation.PopModalAsync();
         }
+
     }
 }

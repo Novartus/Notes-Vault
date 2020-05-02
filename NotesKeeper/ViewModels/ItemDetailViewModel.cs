@@ -8,28 +8,49 @@ namespace NotesKeeper.ViewModels
     {
         public Note Note { get; set; }
         public IList<String> CourseList { get; set; }
+        public bool IsNewNote { get; set; }
 
         public String NoteHeading
         {
             get { return Note.Heading; }
-            set 
+            set
             {
                 Note.Heading = value;
                 OnPropertyChanged();
             }
+
         }
-        public ItemDetailViewModel(Item item = null)
+
+        public String NoteText
         {
-            InitializeCourseList();
-            Note = new Note
+            get { return Note.Text; }
+            set
             {
-                Heading = "Test Note",
-                Text = "Text for note in viewmodel",
-                Course = CourseList[0]
-            };
+                Note.Text = value;
+                OnPropertyChanged();
+            }
 
         }
 
+        public String NoteCourse
+        {
+            get { return Note.Course; }
+            set
+            {
+                Note.Course = value;
+                OnPropertyChanged();
+            }
+
+        }
+
+        public ItemDetailViewModel(Note note = null)
+        {
+            IsNewNote = note == null;
+
+            Title = IsNewNote ? "Add note" : "Edit note";
+            InitializeCourseList();
+            Note = note ?? new Note();
+        }
 
         async void InitializeCourseList()
         {

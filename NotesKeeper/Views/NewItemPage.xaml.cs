@@ -11,32 +11,32 @@ namespace NotesKeeper.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class NewItemPage : ContentPage
-    {
-        public Item Item { get; set; }
-
-        public NewItemPage()
+        public partial class NewItemPage : ContentPage
         {
-            InitializeComponent();
+            public Item Item { get; set; }
 
-            Item = new Item
+            public NewItemPage()
             {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
+                InitializeComponent();
 
-            BindingContext = this;
-        }
+                Item = new Item
+                {
+                    Text = "Item name",
+                    Description = "This is an item description."
+                };
 
-        async void Save_Clicked(object sender, EventArgs e)
-        {
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();
-        }
+                BindingContext = this;
+            }
 
-        async void Cancel_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
+            async void Save_Clicked(object sender, EventArgs e)
+            {
+                MessagingCenter.Send(this, "AddItem", Item);
+                await Navigation.PopModalAsync();
+            }
+
+            async void Cancel_Clicked(object sender, EventArgs e)
+            {
+                await Navigation.PopModalAsync();
+            }
         }
     }
-}
